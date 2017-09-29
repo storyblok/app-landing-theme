@@ -1,25 +1,15 @@
 <p align="center">
-  <h1 align="center">Quickstart for Storyblok</h1>
+  <h1 align="center">App Landing Theme from Storyblok</h1>
 </p>
 <br><br>
 
 
 ## Try it out!
 
-```
-# 1. Install the Storyblok CLI
-$ npm install storyblok -g
-
-# 2. Go through the quickstart
-$ storyblok quickstart
-
-# 3. Fire up your dev environment
-$ cd ./project && npm i && npm run dev
-```
-
 ## Commands
 
 In the background we're using `gulp` so you can change all the commands below and adopt them to your need.
+
 ```
 # Start you local dev environment on port 4440
 $ npm run dev
@@ -35,6 +25,12 @@ $ npm run deploy:live
 ```
 
 ## Frequently Ask Questions
+
+#### How can I create a new color version?
+
+Duplicate one of the color-X.scss files and change the primary and secondary color.
+After that simply exectue `npm run dev styles:colors` while having `npm run dev` running.
+In the Single Options field define the newly created color.
 
 #### How can I load stories to create an overview for (news|articles|projects|...): 
 
