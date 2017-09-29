@@ -1,0 +1,21 @@
+{{ blok._editable }}
+<section class="features-section-2 bg-2 section" id="how-it-works">
+  <div class="overlay-color">
+    <div class="container">
+      <div class="row section-separator light-text">
+        <div class="section-header col-md-10 col-md-offset-1">
+          <h2 class="section-heading">{{ blok.title }}</h2>
+          <p class="sub-title">{{ blok.subtitle }}</p>
+        </div>
+
+        <div class="part-1 col-xs-12">
+          <div class="row centered">
+            {% for item in blok.body %}
+              {% include item.component with blok: item %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

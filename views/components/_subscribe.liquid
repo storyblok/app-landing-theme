@@ -1,0 +1,48 @@
+{{ blok._editable }}
+<section class="features-section-4 section bg-3" id="subscribe">
+  <div class="overlay-color">
+    <div class="container">
+      <div class="row section-separator light-text">
+        <div class="section-header col-md-10 col-md-offset-1">
+          <h2 class="section-heading">{{ blok.title }}</h2>
+          {% if blok.subtitle != blank %}
+            <p class="sub-title">{{ blok.subtitle }}</p>
+          {% endif %}
+        </div>
+
+        <div class="part-1 col-sm-6 col-sm-offset-3 col-xs-12">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              {% if blok.provider == 'getrevue.co' %}
+                <form class="single-form text-center" action="{{ blok.signup_url }}" method="post" target="_blank">
+              {% else %}
+                <form class="single-form text-center" action="{{ blok.signup_url }}" method="post" target="_blank">
+              {% endif %}
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="input-group">
+
+                      {% if blok.provider == 'getrevue.co' %}
+                        <input class="form-control" placeholder="Your email address..." type="email" name="member[email]" id="member_email">
+                      {% else %}
+                        <input class="form-control" placeholder="Your email address..." type="email" name="EMAIL" id="member_email">
+                      {% endif %}
+                      <label class="hidden" for="member_email">Email address</label>
+
+                      <div class="input-group-btn">
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d35d0a71881e5ab29895337c8_f7d3c6dd74" tabindex="-1" value=""></div>
+                        <input type="hidden" value="Subscribe" name="member[subscribe]">
+                        <button type="submit" class="btn btn-fill">SUBSCRIBE</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

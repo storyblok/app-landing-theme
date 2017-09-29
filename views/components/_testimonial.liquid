@@ -1,0 +1,17 @@
+<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+  {{ blok._editable }}
+  <div class="testimonial">
+    <blockquote>{{ blok.quote }}</blockquote>
+    <p class="client-profile">
+      {% if blok.image != blank %}
+        <img
+          data-src="{{img image size='50x50' }}"
+          class="lazyload client-img img-responsive" />
+      {% endif %}
+      <span class="detail-group text-left">
+        <span class="name">{{ blok.name }}</span>
+        <span class="position">{{ blok.company }}</span>
+      </span>
+    </p>
+  </div>
+</div>

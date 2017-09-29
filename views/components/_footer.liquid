@@ -1,0 +1,59 @@
+{% set footerData from story id:'footer' %}
+{{ footerData.content._editable }}
+<footer class="footer-section-1" id="footer">
+  <div class="container">
+    <div class="row section-separator">
+
+      <div class="each-item col-sm-5">
+        <div class="inner text-right">
+
+          <p class="sub-title">{{ footerData.content.contact_title }}</p>
+          <a href="{{ footerData.content.contact_link }}">
+            <h5 class="title">{{ footerData.content.contact_button }}</h5>
+          </a>
+
+        </div>
+      </div>
+      <div class="each-item col-sm-2">
+        <div class="inner text-center">
+
+          <a href="/" class="logo-link">
+            {% if footerData.content.logo != blank %}
+              <img
+                data-src="{{ footerData.content.logo | resize:'200x0' }}"
+                class="lazyload img-responsive logo" />
+            {% else %}
+              <img src="/public/images/logo-color.png" alt="Logo" class="img-responsive logo">
+            {% endif %}
+          </a>
+
+        </div>
+      </div>
+      <div class="each-item col-sm-5">
+        <div class="inner text-left">
+
+          <p class="sub-title">{{ footerData.content.social_title }}</p>
+          <ul class="nav social-icon">
+            {% for social_icon in footerData.content.social_icons %}
+            <li>
+              <a href="{{ social_icon.link }}">
+                <span>{{ social_icon.label }}</span>
+                <svg class="ico">
+                  <use xlink:href="#{{ social_icon.icon.icon }}"></use>
+                </svg>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="container">
+    <p class="text-center">
+      Powered by <a href="https://www.storyblok.com">Storyblok</a>
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,8 @@
+{{ blok._editable }}
+<img
+  src="{{ blok.source | resize: '100x0' }}"
+  data-sizes="auto"
+  data-src="{{ blok.source | resize: '300x0' }}"
+  data-srcset="{{ blok.source | resize: '300x0' }} 300w,
+  {{ blok.source | resize: '600x0' }} 600w,
+  {{ blok.source | resize: '900x0' }} 900w" class="lazyload img-responsive" />

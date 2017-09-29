@@ -1,0 +1,25 @@
+{{ blok._editable }}
+<header id="header" class="okayNav-header navbar-fixed-top main-navbar-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+        <a class="navbar-brand light-logo" href="/">
+          {% if blok.logo != blank %}
+            <img data-srcset="{{ blok.logo | resize:'0x40' }} 1x,{{ blok.logo | resize:'0x80' }} 2x" alt="Logo" class="lazyload img-responsive">
+          {% else %}
+            <img src="/public/images/logo-color.png" alt="Logo" class="img-responsive">
+          {% endif %}
+        </a>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
+        <nav role="navigation" class="okayNav pull-right" id="js-navbar-menu">
+          <ul id="navbar-nav" class="navbar-nav">
+            {% for item in blok.navigation %}
+              <li><a class="btn-nav" href="{{ item.link }}">{{ item.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

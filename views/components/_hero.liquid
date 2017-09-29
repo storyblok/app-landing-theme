@@ -1,0 +1,34 @@
+{{ blok._editable }}
+<section{% if blok.background != blank %} style="background-image: url('{{ blok.background | resize: '1200x0' }}')"{% endif %} class="header-section-1 bg-1 header-js" id="header">
+  <div class="overlay-color">
+    <div class="container">
+      <div class="section-separator sp-top">
+
+        <div class="part-1">
+          <div class="part-inner text-center mr-small">
+
+            {% if blok.logo != blank %}
+            <a href="/" class="logo-link">
+              <img style="width: {% if logo_width != blank %}{{ logo_width }}{% else %}180{% endif %}px" src="{{blok.logo | resize:'180x0' }}" data-srcset="{{blok.logo | resize:'180x0' }} 1x,{{blok.logo | resize:'360x0' }} 2x" alt="Logo" class="lazyload img-responsive logo">
+            </a>
+            {% endif %}
+
+            <h1 class="title editable" id="editable">{{ blok.title }}</h1> 
+
+            {% if blok.cta_button_label != blank %}
+            <div class="btn-form m-t-40 btn-scroll">
+              <a href="{{ blok.cta_button_link }}" class="btn btn-fill">{{ blok.cta_button_label }}</a>
+            </div>
+            {% endif %}
+
+            <div class="image-group">
+              {% for item in blok.images %}
+                {% include item.component with blok: item %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

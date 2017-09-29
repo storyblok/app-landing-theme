@@ -1,0 +1,35 @@
+{{ blok._editable }}
+<section class="features-section-3 section app-swiper-slide" id="screenshots">
+  <div class="container">
+    <div class="row section-separator">
+
+      <div class="features-content m-t-50 col-md-6">
+        <div class="section-header text-left m-b-30">
+          <h2 class="section-heading gradient-text-full">{{ blok.title }}</h2>
+        </div>
+
+        <div class="detail">
+          <div>{{ blok.description | markdown }}</div>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          {% for screenshot in blok.screenshots %}
+          <div class="col-md-6">
+            {{ screenshot._editable }}
+            <img
+              data-sizes="auto"
+              data-src="{{ screenshot.source | resize: '300x0' }}"
+              data-srcset="{{ screenshot.source | resize: '300x0' }} 300w,
+              {{ screenshot.source | resize: '600x0' }} 600w,
+              {{ screenshot.source | resize: '900x0' }} 900w" class="lazyload img-responsive" />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

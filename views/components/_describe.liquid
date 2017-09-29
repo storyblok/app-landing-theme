@@ -1,0 +1,51 @@
+{{ blok._editable }}
+<section class="features-section-3 section bg-dark" id="describe">
+  <div class="container">
+    <div class="row section-separator">
+
+      {% if blok.image_on_left == blank %}
+        <div class="features-image col-md-6 col-md-push-6">
+
+          {% if blok.image %}
+            <img
+              data-sizes="auto"
+              data-src="{{ blok.image | resize: '300x0' }}"
+              data-srcset="{{ blok.image | resize: '300x0' }} 300w, {{ blok.image | resize: '600x0' }} 600w, {{ blok.image | resize: '900x0' }} 900w"
+              class="lazyload img-responsive pull-right" />
+          {% else %}
+            <img src="/public/images/2-phone-right.png" alt="App Picture" class="img-responsive pull-right">
+          {% endif %}
+
+        </div>
+      {% else %}
+        <div class="features-image col-md-6">
+
+          {% if blok.image %}
+            <img
+              data-sizes="auto"
+              data-src="{{ blok.image | resize: '300x0' }}"
+              data-srcset="{{ blok.image | resize: '300x0' }} 300w, {{ blok.image | resize: '600x0' }} 600w, {{ blok.image | resize: '900x0' }} 900w"
+              class="lazyload img-responsive pull-left" />
+          {% else %}
+            <img src="/public/images/2-phone-left.png" alt="App Picture" class="img-responsive pull-left">
+          {% endif %}
+
+        </div>
+      {% endif %}
+
+      <div class="features-content m-t-50 col-md-6{% if blok.image_on_left == blank %} col-md-pull-6{% endif %}">
+        <div class="section-header text-left m-b-30">
+          <h2 class="section-heading gradient-text-full">{{ blok.title }}</h2>
+        </div>
+
+        <div class="detail">
+          {{ blok.description | markdown }}
+        </div>
+
+        {% for item in blok.body %}
+          {% include item.component with blok: item %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+{% for item in blok.header %}
+  {% include item.component with blok: item %}
+{% endfor %}
+
+{% for item in blok.body %}
+  {% include item.component with blok: item %}
+{% endfor %}
+
+{% include 'footer' %}

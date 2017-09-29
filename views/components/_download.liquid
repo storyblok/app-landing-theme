@@ -1,0 +1,21 @@
+{{ blok._editable }}
+<section class="features-section-5 testimonials-1 bg-4 section" id="download">
+  <div class="overlay-color">
+    <div class="container">
+      <div class="row section-separator light-text">
+
+        <div class="section-header col-md-10 col-md-offset-1">
+          <h2 class="section-heading">{{ blok.title }}</h2>
+          <p class="sub-title">{{ blok.subtitle }}</p>
+        </div>
+
+        <div class="clearfix"></div>
+
+        {% for item in blok.body %}
+          {% include item.component with blok: item %}
+          <div class="clearfix"></div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

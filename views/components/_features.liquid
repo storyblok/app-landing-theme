@@ -1,0 +1,49 @@
+{{ blok._editable }}
+<section class="features-section-1 section" id="features">
+  <div class="container">
+    <div class="row section-separator">
+
+      <div class="section-header col-md-10 col-md-offset-1">
+        <h2 class="section-heading">{{ blok.title }}</h2>
+        <p class="sub-title">{{ blok.subtitle }}</p>
+      </div>
+
+      <div class="part-1 col-xs-12">
+        <div class="row">
+
+          <div class="vertical-middle col-md-4 col-sm-6 col-sm-offset-3 ">
+
+            {% for item in blok.features limit:2 %}
+              {% include item.component with blok: item %}
+            {% endfor %}
+
+          </div>
+
+          <div class="vertical-middle col-md-4">
+            <div class="features-image">
+              {% if blok.image != blank %}
+                <img
+                  data-sizes="auto"
+                  data-src="{{ blok.image | resize:'300x0' }}"
+                  data-srcset="{{ blok.image | resize:'300x0' }} 300w, {{ blok.image | resize:'600x0' }} 600w, {{ blok.image | resize:'900x0' }} 900w"
+                  class="lazyload" />
+              {% else %}
+                <img src="/public/images/feature-phone.png" alt="feature">
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="vertical-middle col-md-4 col-sm-6 col-sm-offset-3">
+
+            {% for item in blok.features limit:2 offset:2 %}
+              {% include item.component with blok: item %}
+            {% endfor %}
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
