@@ -29,7 +29,7 @@ $ npm run deploy:live
 #### How can I create a new color version?
 
 Duplicate one of the color-X.scss files and change the primary and secondary color.
-After that simply exectue `npm run dev styles:colors` while having `npm run dev` running.
+After that simply execute `npm run dev styles:colors` while having `npm run dev` running.
 In the Single Options field define the newly created color.
 
 #### How can I load stories to create an overview for (news|articles|projects|...): 
